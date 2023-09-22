@@ -45,7 +45,7 @@ class Agenda_model extends Model
             ->where('agenda.judul_agenda', 'LIKE', "%{$keywords}%") 
             ->orWhere('agenda.isi', 'LIKE', "%{$keywords}%") 
             ->orderBy('id_agenda','DESC')
-           ->paginate(25);
+        ->paginate(25);
         return $query;
     }
 
