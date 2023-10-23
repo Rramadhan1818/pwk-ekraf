@@ -12,22 +12,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+//EKRAF
+Route::get('/ekraf', 'App\Http\Controllers\Home@ekraf');
+Route::get('ekraf/{id}', 'App\Http\Controllers\Home@ekraf');
 
-/* FRONT END */
+
 // Home
 Route::get('/', 'App\Http\Controllers\Home@index');
 Route::get('home', 'App\Http\Controllers\Home@index');
 Route::get('kontak', 'App\Http\Controllers\Home@kontak');
-Route::get('pemesanan', 'App\Http\Controllers\Home@pemesanan');
-Route::get('konfirmasi', 'App\Http\Controllers\Home@konfirmasi');
-Route::get('pembayaran', 'App\Http\Controllers\Home@pembayaran');
-Route::post('proses_pemesanan', 'App\Http\Controllers\Home@proses_pemesanan');
 Route::get('berhasil/{par1}', 'App\Http\Controllers\Home@berhasil');
 Route::get('cetak/{par1}', 'App\Http\Controllers\Home@cetak');
-Route::get('javawebmedia', 'App\Http\Controllers\Home@javawebmedia');
+// Route::get('javawebmedia', 'App\Http\Controllers\Home@javawebmedia');
 Route::get('aksi', 'App\Http\Controllers\Aksi@index');
 Route::get('aksi/status/{par1}', 'App\Http\Controllers\Aksi@status');
 // Login
@@ -73,18 +69,6 @@ Route::get('proyek/cetak/{par1}', 'App\Http\Controllers\Proyek@cetak');
 // dasbor
 Route::get('admin/dasbor', 'App\Http\Controllers\Admin\Dasbor@index');
 Route::get('admin/dasbor/konfigurasi', 'App\Http\Controllers\Admin\Dasbor@konfigurasi');
-// pemesanan
-Route::get('admin/pemesanan', 'App\Http\Controllers\Admin\Pemesanan@index');
-Route::get('admin/pemesanan/tambah', 'App\Http\Controllers\Admin\Pemesanan@tambah');
-Route::get('admin/pemesanan/detail/{par1}', 'App\Http\Controllers\Admin\Pemesanan@detail');
-Route::get('admin/pemesanan/status_pemesanan/{par1}', 'App\Http\Controllers\Admin\Pemesanan@status_pemesanan');
-Route::get('admin/pemesanan/cetak/{par1}', 'App\Http\Controllers\Admin\Pemesanan@cetak');
-Route::get('admin/pemesanan/edit/{par1}', 'App\Http\Controllers\Admin\Pemesanan@edit');
-Route::get('admin/pemesanan/filter/{par1}/{par2}/{par3}', 'App\Http\Controllers\Admin\Pemesanan@filter');
-Route::get('admin/pemesanan/cari', 'App\Http\Controllers\Admin\Pemesanan@cari');
-Route::post('admin/pemesanan/proses', 'App\Http\Controllers\Admin\Pemesanan@proses');
-Route::post('admin/pemesanan/tambah_proses', 'App\Http\Controllers\Admin\Pemesanan@tambah_proses');
-Route::post('admin/pemesanan/edit_proses', 'App\Http\Controllers\Admin\Pemesanan@edit_proses');
 // user
 Route::get('admin/user', 'App\Http\Controllers\Admin\User@index');
 Route::post('admin/user/tambah', 'App\Http\Controllers\Admin\User@tambah');

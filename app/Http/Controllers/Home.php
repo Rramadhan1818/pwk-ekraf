@@ -17,7 +17,11 @@ class Home extends Controller
     {
     	$site_config   = DB::table('konfigurasi')->first();
         $video          = DB::table('video')->orderBy('id_video','DESC')->first();
-        $sub_sektor     = DB::table('mt_sub_sektor')->orderBy('id_sub_sektor','ASC')->get();
+        $sub_sektor     = DB::table('mt_sub_sektor')
+        ->select('mt_sub_sektor.id_sub_sektor', 'mt_sub_sektor.sub_sektor_name', 'mt_sub_sektor.description', 'mt_sub_sektor.icon', DB::raw('COUNT(subject_data.id_sub_sector) AS total_data'))
+        ->leftJoin('subject_data', 'mt_sub_sektor.id_sub_sektor', '=', 'subject_data.id_sub_sector')
+        ->groupBy('mt_sub_sektor.id_sub_sektor', 'mt_sub_sektor.sub_sektor_name', 'mt_sub_sektor.description', 'mt_sub_sektor.icon')
+        ->get();
     	$slider         = DB::table('galeri')->where('jenis_galeri','Homepage')->limit(5)->orderBy('id_galeri', 'DESC')->get();
         $layanan        = DB::table('berita')->where(array('jenis_berita'=>'Layanan','status_berita'=>'Publish'))->limit(3)->orderBy('urutan', 'ASC')->get();
         $news           = new Berita_model();
@@ -72,6 +76,38 @@ class Home extends Controller
                         'content'   => 'home/kontak'
                     );
         return view('layout/wrapper',$data);
+    }
+
+    // kontak
+    public function ekraf()
+    {
+        $site_config   = DB::table('konfigurasi')->first();
+        $sub_sektor     = DB::table('mt_sub_sektor')
+            ->select('mt_sub_sektor.id_sub_sektor', 'mt_sub_sektor.sub_sektor_name', 'mt_sub_sektor.description', 'mt_sub_sektor.icon', DB::raw('COUNT(subject_data.id_sub_sector) AS total_data'))
+            ->leftJoin('subject_data', 'mt_sub_sektor.id_sub_sektor', '=', 'subject_data.id_sub_sector')
+            ->groupBy('mt_sub_sektor.id_sub_sektor', 'mt_sub_sektor.sub_sektor_name', 'mt_sub_sektor.description', 'mt_sub_sektor.icon')
+            ->get();
+        $sub_sektor_side    = DB::table('mt_sub_sektor')->orderBy('sub_sektor_name', 'ASC')->get();
+        $subject_data    = DB::table('subject_data')->orderBy('id_sub_sector', 'ASC')->get();
+        $category_business    = DB::table('mt_category_business as c')
+            ->select('c.id_category_business', 'c.category_business', DB::raw('COUNT(t.id_category_business) AS total_data'))
+            ->leftJoin('subject_data as t', 'c.id_category_business', '=', 't.id_category_business')
+            ->groupBy('c.id_category_business', 'c.category_business')
+            ->get();
+
+
+        $data = array(
+            'title'             => 'Menghubungi ' . $site_config->namaweb,
+            'deskripsi'        => 'ekraf ' . $site_config->namaweb,
+            'keywords'         => 'ekraf ' . $site_config->namaweb,
+            'site_config'      => $site_config,
+            'subject_data'      => $subject_data,
+            'sub_sektor'           => $sub_sektor,
+            'sub_sektor_side'           => $sub_sektor_side,
+            'category_business'     => $category_business,
+            'content'          => 'ekraf/index'
+        );
+        return view('layout/wrapper', $data);
     }
 
 }

@@ -132,8 +132,8 @@ $( ".tanggal" ).datepicker({
 </script>
   <script src="{{ asset('public/template/assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
   <script src="{{ asset('public/template/assets/vendor/jquery.easing/jquery.easing.min.js') }}"></script>
-  <script src="{{ asset('public/template/assets/vendor/php-email-form/validate.js') }}"></script>
-  <script src="{{ asset('public/template/assets/vendor/venobox/venobox.min.js') }}"></script>
+  {{-- <script src="{{ asset('public/template/assets/vendor/php-email-form/validate.js') }}"></script> --}}
+  {{-- <script src="{{ asset('public/template/assets/vendor/venobox/venobox.min.js') }}"></script> --}}
   <script src="{{ asset('public/template/assets/vendor/waypoints/jquery.waypoints.min.js') }}"></script>
   <script src="{{ asset('public/template/assets/vendor/counterup/counterup.min.js') }}"></script>
   <script src="{{ asset('public/template/assets/vendor/owl.carousel/owl.carousel.min.js') }}"></script>
@@ -142,13 +142,18 @@ $( ".tanggal" ).datepicker({
   <script src="{{ asset('public/template/assets/js/main.js') }}"></script>
 
   <!--  Template Finance  -->
-<script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
+{{-- <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
 <script src="{{ asset('assets/js/tiny-slider.js') }}"></script>
 <script src="{{ asset('assets/js/flatpickr.min.js') }}"></script>
 <script src="{{ asset('assets/js/aos.js') }}"></script>
 <script src="{{ asset('assets/js/glightbox.min.js') }}"></script>
 <script src="{{ asset('assets/js/navbar.js') }}"></script>
 <script src="{{ asset('assets/js/counter.js') }}"></script>
-<script src="{{ asset('assets/js/custom.js') }}"></script>
+<script src="{{ asset('assets/js/custom.js') }}"></script> --}}
+
+    <!-- MDB -->
+    <script type="text/javascript" src="{{ asset('assets/mdb5/js/mdb.min.js')}}"></script>
+    <!-- Custom scripts -->
+    <script type="text/javascript" src="{{ asset('assets/mdb5/js/script.js')}}"></script>
 </body>
 </html>

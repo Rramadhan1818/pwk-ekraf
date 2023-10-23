@@ -1,263 +1,180 @@
-<!--Slider Start-->
-<section id="home-slider" class="owl-carousel owl-theme wf100">
-   <div class="hero overlay">
-      <img src="{{ asset('assets/images/blob.svg') }}" alt="" class="img-fluid blob">
-      <?php foreach($slider as $slider) { ?>
-         <div class="container">
-            <div class="row align-items-center justify-content-between mt-5">
-               <div class="col-lg-6 text-center text-lg-start pe-lg-5">
-                  <?php if($slider->status_text=="Ya") { ?>
-                     <h1 class="heading text-white mb-3" data-aos="fade-up">{{ $slider->judul_galeri }}</h1>
-                     <p class="text-white mb-5" data-aos="fade-up" data-aos-delay="100">{{ strip_tags($slider->isi) }}</p>
-                     <div class="align-items-center mb-5 mm" data-aos="fade-up" data-aos-delay="200">
-                        <a href="{{ $slider->website }}" class="btn btn-outline-white-reverse me-4">Read More</a>
-                        <a href="https://www.youtube.com/watch?v=Mb1zrW_zra4" class="text-white glightbox">Watch the video</a>
-                     </div>
-                  <?php } ?>
-               </div>
-               <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
-                  <img src="{{ asset('assets/upload/image/'.$slider->gambar) }}" alt=""  class="img-fluid rounded"> 
-                  {{-- <div class="img-wrap">
-                     <img src="{{ asset('assets/images/img-1.jpg') }}" alt="Image" class="img-fluid rounded">
-                  </div> --}}
-               </div>
-            </div>
-         </div>
-         <?php } ?>
-      </div>
-   </section>
+<style>
+      .card-sub-sector:hover {
+         background-color: #00B5B8!important;
+         transition: background-color 0.3s ease;
+         cursor: pointer;
+         color: white !important;
+      }
+
+      .card-sub-sector:hover h5.primary {
+         color: white !important;
+      }
+</style>
+    <!-- Jumbotron -->
+    <div class="bg-primary text-white py-5">
+      <!--Slider Start-->
+    <section id="home-slider" class="owl-carousel owl-theme wf100">
+       <div class="hero overlay">
+             {{-- <img src="{{ asset('assets/images/blob.svg') }}" alt="" class="img-fluid blob"> --}}
+          <?php foreach($slider as $slider) { ?>
+             <div class="container">
+                <div class="row align-items-center justify-content-between mt-5">
+                   <div class="col-lg-6 text-center text-lg-start pe-lg-5">
+                         <?php if($slider->status_text=="Ya") { ?>
+                         <h1 class="heading text-white mb-3" data-aos="fade-up">{{ $slider->judul_galeri }}</h1>
+                         <p class="text-white mb-5" data-aos="fade-up" data-aos-delay="100">
+                            {{ strip_tags($slider->isi) }}</p>
+                         <div class="align-items-center mb-5 mm" data-aos="fade-up" data-aos-delay="200">
+                            <button type="button" class="btn btn-outline-light">
+                               Daftar Sekarang
+                            </button>
+                            <button type="button" class="btn btn-light shadow-0 primary pt-2 border border-white">
+                               <span class="pt-1">Pelajari lebih lanjut</span>
+                            </button>
+                         </div>
+                         <?php } ?>
+                   </div>
+                   <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+                         <img src="{{ asset('assets/upload/image/'.$slider->gambar) }}" alt=""
+                            class="img-fluid rounded">
+                   </div>
+                </div>
+             </div>
+          <?php } ?>
+       </div>
+    </section>
+ </div>
+ <!-- Jumbotron -->
       {{-- Data Service --}}
-      <div class="section sec-services">
+      <div class="section sec-services mt-4">
          <div class="container">
-            <div class="row mb-1">
-               <div class="col-lg-5 mx-auto text-center" data-aos="fade-up">
-                  <h2 class="heading text-primary">17 Sub Sektor</h2>
-                  {{-- <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p> --}}
-               </div>
-            </div>
-      
             <div class="row">
+               <div class="col-12 mt-3 mb-1">
+                   <h4 class="text-uppercase"><b class="primary">17</b> Sub Sektor</h4>
+                   <p>Badan Usaha di Kabupaten Purwakarta</p>
+               </div>
+           </div>
+           <div class="row">
                <?php foreach($sub_sektor as $sub_sektor) { ?>
-                  <div class="col-12 col-sm-6 col-md-6 col-lg-2" data-aos="fade-up">
-                     <div class="service text-center">
-                  {{-- <img src="{{ asset('assets/upload/user/testimonials-1.jpg') }}" alt=""  class="img-fluid rounded">  --}}
-
-                        <span class="bi-cash-coin"></span>
-                        <div>
-                           <h3>{{ $sub_sektor->sub_sektor_name }}</h3>
-                        </div>
-                     </div>
-                  </div>
-               <?php }  ?>
-            </div>
-         </div>
-      </div>
-
-         <!--Slider End--> 
-         <!--Service Area Start-->
-         <div class="section sec-news donation-join wf100">
-            <div class="container">
-               <div class="row mb-5">
-                  <div class="col-lg-7">
-                     <h2 class="heading text-primary">Berita Terbaru</h2>
-                  </div>
-               </div>
-         
-               <div class="row">
-                  <?php foreach($layanan as $layanan) { ?>
-                     {{-- <div class="col-md-4 col-sm-12">
-                        <br>
-                        <img src="{{ asset('assets/upload/image/thumbs/'.$layanan->gambar) }}" alt="{{ $layanan->judul_berita }}" class="img img-thumbnail img-fluid">
-                        <div class="volbox">
-                           <h6>{{ $layanan->judul_berita }}</h6>
-                           <p>{{ $layanan->keywords }}</p>
-                           <a href="{{ asset('berita/layanan/'.$layanan->slug_berita) }}">Lihat detail</a> 
-                        </div>
-                     </div> --}}
-                     <div class="col-lg-3">
-                        <div class="card post-entry">
-                           <a href="single.html"><img src="{{ asset('assets/upload/image/thumbs/'.$layanan->gambar) }}" class="card-img-top" style="max-width: 100%" alt="{{ $layanan->judul_berita }}"></a>
-                           <div class="card-body" style="padding: 20px;">
-                              <div><span class="text-uppercase font-weight-bold date">Jan 20, 2021</span></div>
-                              <h6 class="card-title"><a href="single.html">{{ $layanan->judul_berita }}</a></h5>
-                              <p>{{ $layanan->keywords }}</p>
-                              <p class="mt-2 mb-0"><a href="{{ asset('berita/layanan/'.$layanan->slug_berita) }}">Baca selengkapnya ></a></p>
+               <div class="col-xl-2 col-sm-6 col-12">
+                   <div class="card card-sub-sector">
+                       <div class="card-content">
+                           <div class="card-body p-2">
+                               <div class="row">
+                                   <div class="col-md-8 text-left">
+                                       <h5 class="primary">{{ $sub_sektor->total_data }}</h5>
+                                       <span style="font-size:0.8rem">{{ $sub_sektor->sub_sektor_name }}</span>
+                                   </div>
+                                   <div class="col-md-4 float-right">
+                                       <img src="{{ asset('assets/images/ekraf/'.$sub_sektor->icon.'') }}" width="40px">
+                                   </div>
+                               </div>
                            </div>
-                        </div>
-                     </div>
-            
-                     <!--box  end--> 
-                  <?php } ?>
+                       </div>
+                   </div>
                </div>
-            </div>
+               <?php }  ?>
+           </div>
          </div>
-
-         {{-- <section class="donation-join wf100">
-            <div class="container text-center">
-               <div class="row">
-                  
-                  <?php foreach($layanan as $layanan) { ?>
-                     <div class="col-md-4 col-sm-12">
-                        <br>
-                        <img src="{{ asset('assets/upload/image/thumbs/'.$layanan->gambar) }}" alt="{{ $layanan->judul_berita }}" class="img img-thumbnail img-fluid">
-                        <div class="volbox">
-                           <h6>{{ $layanan->judul_berita }}</h6>
-                           <p>{{ $layanan->keywords }}</p>
-                           <a href="{{ asset('berita/layanan/'.$layanan->slug_berita) }}">Lihat detail</a> 
-                        </div>
-                     </div>
-                     <!--box  end--> 
-                  <?php } ?>
-                  
-               </div>
-            </div>
-         </section> --}}
-
-
-         <div class="section sec-cta overlay" style="background-image: url({{ asset('assets/images/img-3.jpg')}})">
-            <div class="container">
-               <div class="row justify-content-between align-items-center">
-                  <div class="col-lg-5" data-aos="fade-up" data-aos-delay="0">
-                     <h2 class="heading">Kamu Seorang Pelaku Bisnis?</h2>
-                     <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
-                  </div>
-                  <div class="col-lg-5 text-end" data-aos="fade-up" data-aos-delay="100">
-                     <a href="#" class="btn btn-outline-white-reverse">Contact us</a>
-                  </div>
-               </div>
-            </div>
-         </div>
-         
-         <!--Service Area End--> 
-         {{-- <section class="wf100 about">
-            <!--About Txt Video Start-->
-            <div class="about-video-section wf100">
-               <div class="container">
-                  <div class="row">
-                     <div class="col-lg-7">
-                        <div class="about-text">
-                           <h5>TENTANG KAMI</h5>
-                           <h2>{{ $site_config->nama_singkat }}</h2>
-                           <?php echo $site_config->tentang ?>
-
-                           <a href="{{ asset('kontak') }}" class="btn btn-info btn-lg">Kontak Kami</a> 
-                        </div>
-                     </div>
-                     <div class="col-lg-5">
-                        <a href="#"><img src="{{ asset('assets/upload/image/'.$site_config->gambar) }}" alt="{{ $site_config->nama_singkat }}" class="img img-fluid img-thumbnail">
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <!--About Txt Video End--> 
-            <!--About Section Start-->
-         <section class="home2-about wf100 p100 gallery" style="background: url({{ asset('assets/aws/images/news-artilcesbg.jpg') }}) no-repeat; background-size: cover;">
-            <div class="container">
-               <div class="row">
-                  <div class="col-md-5">
-                        <div class="video-img"> <a href="https://youtu.be/{{ $video->video }}" data-rel="prettyPhoto" title="{{ $video->judul }}"><i class="fas fa-play"></i></a> <img src="{{ asset('assets/upload/image/'.$video->gambar) }}" alt=""> </div>
-                  </div>
-                  <div class="col-md-7">
-                     <div class="h2-about-txt">
-                        <h3>Webinar</h3>
-                        <h2>{{ $video->judul }}</h2>
-                        <p><?php echo strip_tags($video->keterangan) ?></p>
-                        <a class="aboutus" href="#">Lihat Detail</a> 
-                     </div>
-                  </div>
-               </div>
-            </div>
-            
-         </section> --}}
-         <!--About Section End--> 
-         
-         <!--Blog Start-->
-{{-- <section class="h2-news wf100 p80 blog">
-   <div class="blog-grid">
-      <div class="container">
-         <div class="row">
-            <div class="col-md-6">
-               <div class="section-title-2">
-                  <h5>Baca update kami</h5>
-                  <h2>Berita & Updates</h2>
-               </div>
-            </div>
-            <div class="col-md-6"> <a href="{{ asset('berita') }}" class="view-more">Lihat berita lainnya</a> </div>
-            <div class="col-md-12">
-               <hr>
-            </div>
-         </div>
-         <div class="row" style="background-color: white; padding-top: 20px; padding-bottom: 20px; border-radius: 5px;">
-            <?php foreach($berita as $berita) { ?>
-            <!--Blog Small Post Start-->
-            <div class="col-md-4 col-sm-6" >
-               <div class="blog-post">
-                  <div class="blog-thumb"> <a href="{{ asset('berita/read/'.$berita->slug_berita) }}"><i class="fas fa-link"></i></a> <img src="{{ asset('assets/upload/image/thumbs/'.$berita->gambar) }}" alt="><?php  echo $berita->judul_berita ?>"> </div>
-                  <div class="post-txt">
-                     <h5><a href="{{ asset('berita/read/'.$berita->slug_berita) }}"><?php  echo $berita->judul_berita ?></a></h5>
-                     <ul class="post-meta">
-                        <li> <a href="{{ asset('berita/read/'.$berita->slug_berita) }}"><i class="fas fa-calendar-alt"></i> {{ tanggal('tanggal_id',$berita->tanggal_post)}}</a> </li>
-                        <li> <a href="{{ asset('berita/kategori/'.$berita->slug_berita) }}"><i class="fas fa-sitemap"></i> {{ $berita->nama_kategori }}</a> </li>
-                     </ul>
-                     <p><?php echo \Illuminate\Support\Str::limit(strip_tags($berita->isi), 100, $end='...') ?></p>
-                     <a href="{{ asset('berita/read/'.$berita->slug_berita) }}" class="read-post">Baca detail</a>
-                  </div>
-               </div>
-            </div>
-            <!--Blog Small Post End--> 
-            <?php } ?>
-         </div>
-         
       </div>
-   </div>
-</section> --}}
-<!--Blog End--> 
+         <!--Slider End--> 
 
-<!--Testimonials Start-->
-<section class="testimonials-section bg-white wf100 p80 p-5">
-   <div class="container">
-      <div class="row">
-         <div class="col-md-12">
-            {{-- <div class="section-title-2 text-center mb-2">
-               <h2>Download</h2>
-            </div> --}}
-            <div id="testimonials" class="owl-carousel owl-theme">
+
+         <!--Service Area Start-->
+         <section class="mt-2" style="background-color: #f5f5f5;">
+            <div class="container text-dark pt-3">
+              <header class="pt-4 pb-3">
+                <h3>Berita</h3>
+              </header>
+          
+              <div class="row mb-4">
+               <?php foreach($berita as $berita) { ?>
+                  <div class="col-lg-3">
+                     <div class="card post-entry">
+                        <a href="{{ asset('berita/read/'.$berita->slug_berita) }}"><img src="{{ asset('assets/upload/image/thumbs/'.$berita->gambar) }}" class="card-img-top" style="max-width: 100%" alt="{{ $berita->judul_berita }}"></a>
+                        <div class="card-body" style="padding: 20px;">
+                           <div><span class="text-uppercase font-weight-bold date">{{ tanggal('tanggal_id',$berita->tanggal_post)}}</span></div>
+                           {{-- <ul class="post-meta">
+                              <li> <a href="{{ asset('berita/read/'.$berita->slug_berita) }}"><i class="fas fa-calendar-alt"></i> {{ tanggal('tanggal_id',$berita->tanggal_post)}}</a> </li>
+                              <li> <a href="{{ asset('berita/read/'.$berita->slug_berita) }}"><i class="fas fa-comments"></i> {{ $berita->nama_kategori }}</a> </li>
+                           </ul> --}}
+                           <h6 class="card-title"><a href="{{ asset('berita/read/'.$berita->slug_berita) }}">{{ $berita->judul_berita }}</a></h5>
+                           <p>{{  \Illuminate\Support\Str::limit(strip_tags($berita->isi), 80, $end='...') }}</p>
+                           <p class="mt-2 mb-0"><a href="{{ asset('berita/read/'.$berita->slug_berita) }}">Baca selengkapnya ></a></p>
+                        </div>
+                     </div>
+                  </div>
+               <?php } ?>
+              </div>
+            </div>
+            <!-- container end.// -->
+          </section>
+
+          
+          
+          <section class="mt-5 mb-4">
+            <div class="container text-dark">
+              <header class="mb-4">
+                <h3>Agenda</h3>
+              </header>
+              <div class="row">
                <?php 
                $agenda = DB::table('agenda')
                   ->orderBy('id_agenda','DESC')
                   ->get();
                foreach($agenda as $agenda) {
                ?>
-               <!--testimonials box start-->
-               <div class="item">
-                  <h4><?php echo $agenda->judul_agenda ?></h4>
-                  <a href="single.html"><img src="{{ asset('assets/upload/image/thumbs/'.$agenda->gambar) }}" class="card-img-top" style="max-width: 100%" alt="{{ $agenda->judul_agenda }}"></a>
-                  <hr>
-                  <div class="row">
-                     <div class="col-2">
-                        <div class="card bg-secondary text-white" style="width:100%">
-                           18
-                        </div>
-                     </div>
-                     <div class="col-10">
-                        <?php echo \Illuminate\Support\Str::limit(strip_tags($agenda->isi), 100, $end='...') ?>
-                           <a href="{{ asset('download/kategori/'.$agenda->gambar) }}"><i class="fa fa-laptop"></i> Lihat Detail</a>
-                     </div>
-                  </div>
-               </div>
-               <!--testimonials box End--> 
-               <?php } ?>
-            </div>
-         </div>
-      </div>
-   </div>
-</section>
-<!--Testimonials End--> 
 
-    <!-- Preloader -->
-    <div id="overlayer"></div>
-    <div class="loader">
-    	<div class="spinner-border text-primary" role="status">
-    		<span class="visually-hidden">Loading...</span>
-    	</div>
-    </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                  <article>
+                    <a href="{{ asset('download/kategori/'.$agenda->gambar) }}" class="img-fluid">
+                      <img class="rounded w-100" src="{{ asset('assets/upload/image/thumbs/'.$agenda->gambar) }}" style="object-fit: cover;" height="160" />
+                    </a>
+                    <div class="mt-2 text-muted small d-block mb-1">
+                      {{-- <span>
+                        <i class="fa fa-calendar-alt fa-sm"></i>
+                        23.12.2022
+                      </span> --}}
+
+                      <div class="row">
+                        <div class="col-md-3">
+                           <style>
+                              .date-calender {
+                                 width: 48px;
+                                 height: 48px;
+                                 border-radius: 10px;
+                                 background-color: #ffef80;
+                                 text-align: center;
+                                 padding-top: 7px;
+                                 margin-right: 15px;
+                              }
+
+                              .date-calender h3 {
+                                 margin-bottom: 0px;
+                                 font-size: 22px;
+                                 line-height: 20px;
+                                 font-weight: bold;
+                              }
+                           </style>
+                           <div class="date-calender">
+                              <h3>{{ date('d', strtotime($agenda->tanggal_mulai)) }}</h3><span>{{ date('M', strtotime($agenda->tanggal_mulai)) }}</span>
+                           </div>
+                        </div>
+                        <div class="col-md-9">
+                           <a href="{{ asset('download/kategori/'.$agenda->gambar) }}">
+                             <h6 class="text-dark" style="margin-bottom: 0.1rem"><?php echo $agenda->judul_agenda ?></h6>
+                          </a>
+                           <p style="margin-bottom: 0.4rem"><?php echo \Illuminate\Support\Str::limit(strip_tags($agenda->isi), 100, $end='...') ?></p>
+                              <span style="font-size: 0.9em">
+                                 <i class="fa fa-map-pin fa-sm text-danger"></i>
+                                 {{ $agenda->tempat }}
+                              </span>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+                <?php } ?>
+              </div>
+         </div>
+          </section>

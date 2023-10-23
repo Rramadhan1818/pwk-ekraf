@@ -11,123 +11,96 @@ $nav_berita  = $myprofil->nav_berita();
 $nav_terjadi  = $myprofil->nav_terjadi();
 $nav_materi  = $myprofil->nav_materi();
 ?>
-   <div class="site-mobile-menu site-navbar-target">
-      <div class="site-mobile-menu-header">
-         <div class="site-mobile-menu-close">
-            <span class="icofont-close js-menu-toggle"></span>
-         </div>
-      </div>
-      <div class="site-mobile-menu-body"></div>
-   </div>
-   <nav class="site-nav">
-      <div class="container">
-         <div class="menu-bg-wrap">
-            <div class="site-navigation">
-               <div class="row g-0 align-items-center">
-                  <div class="col-2">
-                     <a href="{{ asset('admin/dasbor') }}" class="brand-link">
-                        <img src="{{ asset('assets/upload/image/'.website('icon')) }}"
-                           alt="{{ website('namaweb') }}"
-                           class="img-fluid" style="max-with:100px"
-                           style="opacity: .8"><br>
-                        {{-- <span class="brand-text font-weight-light">{{ website('nama_singkat') }}</span> --}}
-                      </a>
-                     {{-- <a href="index.html" class="logo m-0 float-start">{{ $site_config->namaweb }}<span class="text-primary">.</span></a> --}}
-                  </div>
-                  <div class="col-8 text-center">
-                     <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu mx-auto">
-                        <li class="nav-item active"><a class="nav-link" href="{{ asset('/') }}">Beranda</a> </li>
-                        <li class="nav-item"><a class="nav-link" href="{{ asset('javawebmedia') }}">About Us</a> </li>
-                        <li class="has-children">
-                           <a href="#">Berita &amp; Updates</a>
-                           <ul class="dropdown">
-                              <?php foreach($nav_berita as $nav_berita) { ?>
-                                 <li><a href="{{ asset('berita/kategori/'.$nav_berita->slug_kategori) }}"><i class="fa fa-angle-double-right" aria-hidden="true"></i> {{ Str::words($nav_berita->nama_kategori,4) }}</a></li>
-                                 <?php } ?>
-                           </ul>
-                        </li>
-                        <li class="has-children">
-                           <a href="#">Layanan</a>
-                           <ul class="dropdown">
-                              <?php foreach($nav_layanan as $nav_layanan) { ?>
-                                 <li><a href="{{ asset('berita/layanan/'.$nav_layanan->slug_berita) }}"><i class="fa fa-angle-double-right" aria-hidden="true"></i> {{ Str::words($nav_layanan->judul_berita,6) }}</a></li>
-                                 <?php } ?>
-                           </ul>
-                        </li>
-
-                        <li class="has-children">
-                           <a href="#">Download</a>
-                           <ul class="dropdown">
-                              <?php foreach($nav_materi as $nav_materi) { ?>
-                                 <li><a href="{{ asset('download/kategori/'.$nav_materi->slug_kategori_download) }}"><i class="fa fa-angle-double-right" aria-hidden="true"></i> {{ Str::words($nav_materi->nama_kategori_download,6) }}</a></li>
-                                 <?php } ?>
-                                 <li><a href="{{ asset('download') }}"><i class="fa fa-angle-double-right" aria-hidden="true"></i> Lihat Semua Data</a></li>
-                           </ul>
-                        </li>
-                        
-                        <li class="nav-item"> <a class="nav-link" href="{{ asset('video') }}">Video</a> </li>
-                        <li class="nav-item"> <a class="nav-link" href="{{ asset('galeri') }}">Galeri</a> </li>
-                        <li class="nav-item"> <a class="nav-link" href="{{ asset('kontak') }}">Kontak</a> </li>
-                     </ul>
-                  </div>
-                  <div class="col-2 text-end">
-                     <a href="#" class="burger ms-auto float-end site-menu-toggle js-menu-toggle d-inline-block d-lg-none light">
-                        <span></span>
-                     </a>
-
-                     <a href="#" class="call-us d-flex align-items-center">
-                        <span class="icon-phone"></span>
-                        <span>123-489-9381</span>
-                     </a>
-                  </div>
+ <header>
+       <!-- Jumbotron -->
+       <div class="p-3 text-center bg-white border-bottom">
+         <div class="container">
+           <div class="row gy-3">
+             <!-- Left elements -->
+             <div class="col-lg-2 col-sm-4 col-4">
+               <a href="{{ asset('/home') }}" class="float-start">
+                 <img src="{{ asset('assets/upload/image/'.website('icon')) }}"  alt="{{ website('namaweb') }}" height="35" />
+               </a>
+             </div>
+             <!-- Left elements -->
+     
+             <!-- Center elements -->
+             <div class="order-lg-last col-lg-5 col-sm-8 col-8">
+               <div class="d-flex float-end">
+                 <a href="{{ asset('login') }}" class="me-1 border rounded-5 py-1 px-3 nav-link d-flex align-items-center" target="_blank"> <i class="fas fa-user-alt m-1 me-md-2"></i><p class="d-none d-md-block mb-0">Sign in</p> </a>
+                 <a href="https://forms.gle/NgYagSFmosY8iaq97" class="me-1 border rounded-5 py-1 px-3 nav-link d-flex align-items-center" style="background-color: #f3d617" target="_blank"> <p class="d-none d-md-block mb-0">Daftar Sekarang</p> </a>
                </div>
-            </div>
+             </div>
+             <!-- Center elements -->
+     
+             <!-- Right elements -->
+             <div class="col-lg-5 col-md-12 col-12">
+               <div class="input-group float-center">
+                 <div class="form-outline">
+                   <input type="search" id="form1" class="form-control" />
+                   <label class="form-label" for="form1">Search</label>
+                 </div>
+                 <button type="button" class="btn btn-primary shadow-0">
+                   <i class="fas fa-search"></i>
+                 </button>
+               </div>
+             </div>
+             <!-- Right elements -->
+           </div>
          </div>
-      </div>
-   </nav>
- {{-- <div class="row">
-<div class="col-md-12">
-  <nav class="navbar navbar-expand-lg">
-   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <i class="fas fa-bars"></i> </button>
-   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-         <li class="nav-item"><a class="nav-link" href="{{ asset('/') }}">Beranda</a> </li>
-         <li class="nav-item"><a class="nav-link" href="{{ asset('javawebmedia') }}">About Us</a> </li>
-         <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Berita &amp; Updates <span class="pull-right"><i class="fas fa-caret-down"></i></span></a>
-            <ul class="dropdown-menu" >
-               <?php foreach($nav_berita as $nav_berita) { ?>
-               <li><a href="{{ asset('berita/kategori/'.$nav_berita->slug_kategori) }}"><i class="fa fa-angle-double-right" aria-hidden="true"></i> {{ Str::words($nav_berita->nama_kategori,4) }}</a></li>
-               <?php } ?>
-            </ul>
-         </li>
-         <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Layanan <span class="pull-right"><i class="fas fa-caret-down"></i></span></a>
-            <ul class="dropdown-menu" >
-               <?php foreach($nav_layanan as $nav_layanan) { ?>
-               <li><a href="{{ asset('berita/layanan/'.$nav_layanan->slug_berita) }}"><i class="fa fa-angle-double-right" aria-hidden="true"></i> {{ Str::words($nav_layanan->judul_berita,6) }}</a></li>
-               <?php } ?>
-            </ul>
-         </li>
-         
-         <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Download <span class="pull-right"><i class="fas fa-caret-down"></i></span></a>
-            <ul class="dropdown-menu" >            
-               <?php foreach($nav_materi as $nav_materi) { ?>
-               <li><a href="{{ asset('download/kategori/'.$nav_materi->slug_kategori_download) }}"><i class="fa fa-angle-double-right" aria-hidden="true"></i> {{ Str::words($nav_materi->nama_kategori_download,6) }}</a></li>
-               <?php } ?>
-               <li><a href="{{ asset('download') }}"><i class="fa fa-angle-double-right" aria-hidden="true"></i> Lihat Semua Data</a></li>
-            </ul>
-         </li>
-         <li class="nav-item"> <a class="nav-link" href="{{ asset('video') }}">Video</a> </li>
-         <li class="nav-item"> <a class="nav-link" href="{{ asset('galeri') }}">Galeri</a> </li>
-         <li class="nav-item"> <a class="nav-link" href="{{ asset('kontak') }}">Kontak</a> </li>
-      </ul>
-   </div>
-   </nav> 
-</div>
-</div>
-</div>
-</div> --}}
-</header>
-<!--Header End-->    
+       </div>
+       <!-- Jumbotron -->
+     
+       <!-- Navbar -->
+       <nav class="navbar navbar-expand-lg navbar-light bg-white">
+         <!-- Container wrapper -->
+         <div class="container justify-content-center justify-content-md-between">
+           <!-- Toggle button -->
+           <button
+                   class="navbar-toggler border py-2 text-dark"
+                   type="button"
+                   data-mdb-toggle="collapse"
+                   data-mdb-target="#navbarLeftAlignExample"
+                   aria-controls="navbarLeftAlignExample"
+                   aria-expanded="false"
+                   aria-label="Toggle navigation"
+                   >
+             <i class="fas fa-bars"></i>
+           </button>
+     
+           <!-- Collapsible wrapper -->
+           <div class="collapse navbar-collapse" id="navbarLeftAlignExample">
+             <!-- Left links -->
+             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+               
+               <li class="nav-item active"><a class="nav-link" href="{{ asset('/') }}">Home</a> </li>
+               {{-- <li class="nav-item"><a class="nav-link" href="{{ asset('javawebmedia') }}">About Us</a> </li> --}}
+               <li class="nav-item">
+                 <a class="nav-link text-dark" href="{{ asset('/ekraf') }}">Pelaku</a>
+               </li>
+               <li class="nav-item">
+                <a class="nav-link text-dark" href="{{ asset('/berita/kategori/berita') }}">Berita</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-dark" href="{{ asset('/kontak') }}">Kontak</a>
+              </li>
+               <!-- Navbar dropdown -->
+               {{-- <li class="nav-item dropdown">
+                 <a class="nav-link dropdown-toggle text-dark" href="{{ asset('berita/kategori/berita') }}" id="navbarDropdown" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+                   Berita
+                 </a>
+                 <!-- Dropdown menu -->
+                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <?php foreach($nav_berita as $nav_berita) { ?>
+                     <li><a href="{{ asset('berita/kategori/'.$nav_berita->slug_kategori) }}"><i class="fa fa-angle-double-right" aria-hidden="true"></i> {{ Str::words($nav_berita->nama_kategori,4) }}</a></li>
+                  <?php } ?>
+                 </ul>
+               </li> --}}
+             </ul>
+             <!-- Left links -->
+           </div>
+         </div>
+         <!-- Container wrapper -->
+       </nav>
+       <!-- Navbar -->
+  
