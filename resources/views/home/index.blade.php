@@ -25,12 +25,12 @@
                          <p class="text-white mb-5" data-aos="fade-up" data-aos-delay="100">
                             {{ strip_tags($slider->isi) }}</p>
                          <div class="align-items-center mb-5 mm" data-aos="fade-up" data-aos-delay="200">
-                            <button type="button" class="btn btn-outline-light">
+                            <a href="https://forms.gle/NgYagSFmosY8iaq97" class="btn btn-outline-light">
                                Daftar Sekarang
-                            </button>
-                            <button type="button" class="btn btn-light shadow-0 primary pt-2 border border-white">
+                            </a>
+                            <a href="{{ asset('kontak') }}" class="btn btn-light shadow-0 primary pt-2 border border-white">
                                <span class="pt-1">Pelajari lebih lanjut</span>
-                            </button>
+                            </a>
                          </div>
                          <?php } ?>
                    </div>

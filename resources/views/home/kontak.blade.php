@@ -1,17 +1,30 @@
 <?php 
 $bg   = DB::table('heading')->where('halaman','Kontak')->orderBy('id_heading','DESC')->first();
  ?>
-<!--Inner Header Start-->
-<section class="wf100 p80 inner-header" style="background-image: url('{{ asset('assets/upload/image/'.$bg->gambar) }}'); background-position: bottom center;">
-   <div class="container">
-      <h1>{{ $title }}</h1>
+
+  <!-- Heading -->
+  <div class="bg-primary">
+   <div class="container py-4">
+     <h3 class="text-white ">Menghubungi Ekraf Purwakarta</h3>
+     <!-- Breadcrumb -->
+     <nav class="d-flex">
+       <h6 class="mb-0">
+         <a href="" class="text-white-50">Home</a>
+         <span class="text-white-50 mx-2"> > </span>
+         <a href="" class="text-white-50">Kontak</a>
+         <span class="text-white-50 mx-2"> > </span>
+         <a href="" class="text-white"><u>Form</u></a>
+       </h6>
+     </nav>
+     <!-- Breadcrumb -->
    </div>
-</section>
+ </div>
+
 <!--Inner Header End--> 
 <!--Contact Start-->
 <section class="contact-page wf100 p50">
    <div class="container contact-info">
-      <div class="row">
+      <div class="row mt-4">
          <!--Contact Info Start-->
          <div class="col-md-6">
             <div class="c-info">
@@ -41,26 +54,24 @@ $bg   = DB::table('heading')->where('halaman','Kontak')->orderBy('id_heading','D
       <div class="row">
          <div class="col-md-6">
             <div class="contact-form">
-               <ul class="cform">
-                  <li class="half pr-15">
+                  <div class="mb-2">
                      <input type="text" class="form-control" placeholder="Full Name">
-                  </li>
-                  <li class="half pl-15">
+                  </div>
+                  <div class="mb-2">
                      <input type="text" class="form-control" placeholder="Email">
-                  </li>
-                  <li class="half pr-15">
+                  </div>
+                  <div class="mb-2">
                      <input type="text" class="form-control" placeholder="Contact">
-                  </li>
-                  <li class="half pl-15">
+                  </div>
+                  <div class="mb-2">
                      <input type="text" class="form-control" placeholder="Subject">
-                  </li>
-                  <li class="full">
-                     <textarea class="textarea-control" placeholder="Message"></textarea>
-                  </li>
-                  <li class="full">
+                  </div>
+                  <div class="mb-2">
+                     <textarea class="form-control" placeholder="Message"></textarea>
+                  </div>
+                  <div class="full">
                      <input type="submit" value="Contact us" class="btn btn-info btn-lg btn-block">
-                  </li>
-               </ul>
+                  </div>
             </div>
          </div>
          <div class="col-md-6">
