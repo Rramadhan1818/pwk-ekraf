@@ -27,7 +27,7 @@
         <h6 class="mb-0">
           <a href="" class="text-white-50">Home</a>
           <span class="text-white-50 mx-2"> > </span>
-          <a href="" class="text-white-50">Pelaku</a>
+          <a href="" class="text-white-50">Pelaku Ekraf</a>
           <span class="text-white-50 mx-2"> > </span>
           <a href="" class="text-white"><u>Data</u></a>
         </h6>

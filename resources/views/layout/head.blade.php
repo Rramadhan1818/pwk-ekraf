@@ -10,7 +10,7 @@ $site_config = DB::table('konfigurasi')->first();
 <meta name="keywords" content="{{ $keywords }}">
 <meta name="author" content="{{ $site_config->namaweb }}">
 <!-- icon -->
-<link rel="shortcut icon" href="{{ asset('assets/upload/image/'.$site_config->icon) }}">
+<link rel="shortcut icon" href="{{ asset('assets/upload/image/'.$site_config->favicon) }}">
 <!-- Font Awesome -->
 {{-- <link rel="stylesheet" href="{{ asset('assets/admin/plugins/fontawesome-free/css/all.min.css') }}"> --}}
 <!-- CSS FILES START -->

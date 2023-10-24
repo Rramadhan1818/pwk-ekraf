@@ -97,7 +97,7 @@ class Home extends Controller
 
 
         $data = array(
-            'title'             => 'Menghubungi ' . $site_config->namaweb,
+            'title'             => 'Pelaku Ekraf - '. $site_config->namaweb,
             'deskripsi'        => 'ekraf ' . $site_config->namaweb,
             'keywords'         => 'ekraf ' . $site_config->namaweb,
             'site_config'      => $site_config,

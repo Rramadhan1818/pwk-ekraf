@@ -84,7 +84,7 @@ $nav_layananf = $myprofil->nav_layanan();
                 <!-- Grid column -->
                 <div class="col-12 col-sm-12 col-lg-3">
                     <!-- Links -->
-                    <h6 class="text-uppercase text-dark fw-bold mb-2">Jadi Bagian Kami</h6>
+                    <h6 class="text-uppercase text-dark fw-bold mb-2">Dapatkan Newsletter Terupdate</h6>
                     <p class="text-muted">Silahkan masukan email untuk berlangganan</p>
                     <div class="input-group mb-3">
                         <input type="email" class="form-control border" placeholder="Email" aria-label="Email"

@@ -27,7 +27,7 @@ $nav_materi  = $myprofil->nav_materi();
              <!-- Center elements -->
              <div class="order-lg-last col-lg-5 col-sm-8 col-8">
                <div class="d-flex float-end">
-                 <a href="{{ asset('login') }}" class="me-1 border rounded-5 py-1 px-3 nav-link d-flex align-items-center" target="_blank"> <i class="fas fa-user-alt m-1 me-md-2"></i><p class="d-none d-md-block mb-0">Sign in</p> </a>
+                 <a href="{{ asset('login') }}" class="me-1 border rounded-5 py-1 px-3 nav-link d-flex align-items-center" target="_blank"> <i class="fas fa-user-alt m-1 me-md-2"></i><p class="d-none d-md-block mb-0">Login</p> </a>
                  <a href="https://forms.gle/NgYagSFmosY8iaq97" class="me-1 border rounded-5 py-1 px-3 nav-link d-flex align-items-center" style="background-color: #f3d617" target="_blank"> <p class="d-none d-md-block mb-0">Daftar Sekarang</p> </a>
                </div>
              </div>
@@ -38,7 +38,7 @@ $nav_materi  = $myprofil->nav_materi();
                <div class="input-group float-center">
                  <div class="form-outline">
                    <input type="search" id="form1" class="form-control" />
-                   <label class="form-label" for="form1">Search</label>
+                   <label class="form-label" for="form1">Cari...</label>
                  </div>
                  <button type="button" class="btn btn-primary shadow-0">
                    <i class="fas fa-search"></i>
@@ -76,7 +76,7 @@ $nav_materi  = $myprofil->nav_materi();
                <li class="nav-item active"><a class="nav-link" href="{{ asset('/') }}">Home</a> </li>
                {{-- <li class="nav-item"><a class="nav-link" href="{{ asset('javawebmedia') }}">About Us</a> </li> --}}
                <li class="nav-item">
-                 <a class="nav-link text-dark" href="{{ asset('/ekraf') }}">Pelaku</a>
+                 <a class="nav-link text-dark" href="{{ asset('/ekraf') }}">Pelaku Ekraf</a>
                </li>
                <li class="nav-item">
                 <a class="nav-link text-dark" href="{{ asset('/berita/kategori/berita') }}">Berita</a>
